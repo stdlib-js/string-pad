@@ -46,7 +46,7 @@
     "@stdlib/assert-is-nonnegative-integer": "^0.0.x",
     "@stdlib/assert-is-plain-object": "^0.0.x",
     "@stdlib/assert-is-string": "^0.0.x",
-    "@stdlib/cli": "^0.0.x",
+    "@stdlib/cli-ctor": "^0.0.x",
     "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
     "@stdlib/fs-read-file": "^0.0.x",
     "@stdlib/math-base-special-abs": "^0.0.x",
