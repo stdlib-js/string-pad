@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/string-pad",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Pad a string.",
   "license": "Apache-2.0",
   "author": {
@@ -19,7 +19,6 @@
   "main": "./lib",
   "directories": {
     "benchmark": "./benchmark",
-    "bin": "./bin",
     "doc": "./docs",
     "example": "./examples",
     "lib": "./lib",
