@@ -44,6 +44,7 @@
     "@stdlib/assert-is-boolean": "^0.0.x",
     "@stdlib/assert-is-nonnegative-integer": "^0.0.x",
     "@stdlib/assert-is-plain-object": "^0.0.x",
+    "@stdlib/assert-is-regexp-string": "^0.0.x",
     "@stdlib/assert-is-string": "^0.0.x",
     "@stdlib/cli-ctor": "^0.0.x",
     "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
@@ -56,7 +57,8 @@
     "@stdlib/streams-node-stdin": "^0.0.x",
     "@stdlib/string-left-pad": "^0.0.x",
     "@stdlib/string-repeat": "^0.0.x",
-    "@stdlib/string-right-pad": "^0.0.x"
+    "@stdlib/string-right-pad": "^0.0.x",
+    "@stdlib/utils-regexp-from-string": "^0.0.x"
   },
   "devDependencies": {
     "@stdlib/assert-is-browser": "^0.0.x",
