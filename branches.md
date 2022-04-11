@@ -46,7 +46,7 @@ click E href "https://github.com/stdlib-js/string-pad/tree/deno"
 click F href "https://github.com/stdlib-js/string-pad/tree/umd"
 ```
 
-[stdlib-url]: https://github.com/stdlib-js/string-pad
+[stdlib-url]: https://github.com/stdlib-js/stdlib/tree/develop/lib/node_modules/%40stdlib/string/pad
 [production-url]: https://github.com/stdlib-js/string-pad/tree/production
 [deno-url]: https://github.com/stdlib-js/string-pad/tree/deno
 [umd-url]: https://github.com/stdlib-js/string-pad/tree/umd
