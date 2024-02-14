@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@deno/mod.js';
+import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@v0.2.0-deno/mod.js';
 ```
 
 #### pad( str, len\[, options] )
@@ -185,7 +185,7 @@ var str = pad( 'b', 10, opts );
 ```javascript
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
-import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@deno/mod.js';
+import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@v0.2.0-deno/mod.js';
 
 var str = 'boop';
 var out;
