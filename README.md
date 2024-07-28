@@ -41,19 +41,195 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
 
+```bash
+npm install @stdlib/string-pad
+```
 
+Alternatively,
 
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+-   To use as a general utility for the command line, install the corresponding [CLI package][cli-section] globally.
 
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
 
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
 
+</section>
 
+<section class="usage">
 
+## Usage
+
+```javascript
+var pad = require( '@stdlib/string-pad' );
+```
+
+#### pad( str, len\[, options] )
+
+Pads a `string` such that the padded `string` has a `length` of `len`.
+
+```javascript
+var str = pad( 'a', 5 );
+// returns 'a    '
+```
+
+The function accepts the following `options`:
+
+-   **lpad**: `string` used to left pad. Default: `''`.
+-   **rpad**: `string` used to right pad. Default: `' '`.
+-   **centerRight**: `boolean` indicating whether to center right in the event of a tie. Default: `false` (i.e., center left).
+
+By default, an input `string` is padded with spaces. To pad with a different character or sequence of characters, provide a pad `string`.
+
+```javascript
+var str = pad( 'a', 10, {
+    'lpad': 'b'
+});
+// returns 'bbbbbbbbba'
+
+str = pad( 'a', 12, {
+    'rpad': 'b'
+});
+// returns 'abbbbbbbbbbb'
+```
+
+To center an input `string`, provide both `lpad` and `rpad` options.
+
+```javascript
+var opts = {
+    'lpad': 'a',
+    'rpad': 'c'
+};
+
+var str = pad( 'b', 11, opts );
+// returns 'aaaaabccccc'
+```
+
+When both `lpad` and `rpad` are specified and `len-str.length` is **odd**, left and right padding cannot equally split the available padding space. By default, right padding receives the extra character (i.e., the input `string` is left-centered).
+
+```javascript
+var opts = {
+    'lpad': 'a',
+    'rpad': 'c'
+};
+
+var str = pad( 'b', 10, opts );
+// returns 'aaaabccccc'
+```
+
+To center right, set the `centerRight` option.
+
+```javascript
+var opts = {
+    'lpad': 'a',
+    'rpad': 'c',
+    'centerRight': true
+};
+
+var str = pad( 'b', 10, opts );
+// returns 'aaaaabcccc'
+```
+
+</section>
+
+<!-- /.usage -->
+
+<section class="notes">
+
+## Notes
+
+-   In contrast to [lpad][@stdlib/string/left-pad] and [rpad][@stdlib/string/right-pad], any padding which does not evenly divide available space is trimmed such that the returned `string` length is **always** `len`.
+
+    ```javascript
+    var opts = {
+        'lpad': 'boop',
+        'rpad': 'woot'
+    };
+    var str = pad( 'beep', 10, opts );
+    // returns 'boobeepwoo'
+    ```
+
+-   Similarly, if `len < str.length`, the input `string` is trimmed.
+
+    ```javascript
+    // Pad right, trim right:
+    var str = pad( 'beep', 2 );
+    // returns 'be'
+
+    // Pad left, trim left:
+    str = pad( 'beep', 2, {
+        'lpad': 'b'
+    });
+    // returns 'ep'
+
+    // Pad both, trim both:
+    str = pad( 'beep', 2, {
+        'lpad': '@',
+        'rpad': '!'
+    });
+    // returns 'ee'
+
+    // Pad both, trim both starting from left:
+    str = pad( 'abcdef', 3, {
+        'lpad': '@',
+        'rpad': '!'
+    });
+    // returns 'cde'
+
+    // Pad both, trim both starting from right:
+    str = pad( 'abcdef', 3, {
+        'lpad': '@',
+        'rpad': '!',
+        'centerRight': true
+    });
+    // returns 'bcd'
+    ```
+
+</section>
+
+<!-- /.notes -->
+
+<section class="examples">
+
+## Examples
+
+<!-- eslint no-undef: "error" -->
+
+```javascript
+var round = require( '@stdlib/math-base-special-round' );
+var randu = require( '@stdlib/random-base-randu' );
+var pad = require( '@stdlib/string-pad' );
+
+var str = 'boop';
+var out;
+var len;
+var i;
+
+for ( i = 0; i < 100; i++ ) {
+    len = round( randu()*10.0 ) + str.length;
+    out = pad( str, len, {
+        'lpad': 'beep',
+        'rpad': 'p'
+    });
+    console.log( '%s. %d. %d.', out, len, out.length );
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+* * *
 
 <section class="cli">
 
-
+## CLI
 
 <section class="installation">
 
@@ -71,7 +247,7 @@ npm install -g @stdlib/string-pad-cli
 
 <section class="usage">
 
-## Usage
+### Usage
 
 ```text
 Usage: padstr [options] [<string>] --len <length>
@@ -95,7 +271,7 @@ Options:
 
 <section class="notes">
 
-## Notes
+### Notes
 
 -   If the split separator is a [regular expression][mdn-regexp], ensure that the `split` option is either properly escaped or enclosed in quotes.
 
@@ -115,7 +291,7 @@ Options:
 
 <section class="examples">
 
-## Examples
+### Examples
 
 ```bash
 $ padstr beep --len 10 --lpad b --rpad p
@@ -149,9 +325,10 @@ aaboopooo
 
 <section class="related">
 
+* * *
+
 ## See Also
 
--   <span class="package-name">[`@stdlib/string-pad`][@stdlib/string-pad]</span><span class="delimiter">: </span><span class="description">pad a string.</span>
 -   <span class="package-name">[`@stdlib/string-left-pad`][@stdlib/string/left-pad]</span><span class="delimiter">: </span><span class="description">left pad a string.</span>
 -   <span class="package-name">[`@stdlib/string-right-pad`][@stdlib/string/right-pad]</span><span class="delimiter">: </span><span class="description">right pad a string.</span>
 
@@ -172,7 +349,7 @@ This package is part of [stdlib][stdlib], a standard library for JavaScript and 
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
-### Community
+#### Community
 
 [![Chat][chat-image]][chat-url]
 
@@ -195,11 +372,11 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <section class="links">
 
-[npm-image]: http://img.shields.io/npm/v/@stdlib/string-pad-cli.svg
-[npm-url]: https://npmjs.org/package/@stdlib/string-pad-cli
+[npm-image]: http://img.shields.io/npm/v/@stdlib/string-pad.svg
+[npm-url]: https://npmjs.org/package/@stdlib/string-pad
 
-[test-image]: https://github.com/stdlib-js/string-pad/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/string-pad/actions/workflows/test.yml?query=branch:main
+[test-image]: https://github.com/stdlib-js/string-pad/actions/workflows/test.yml/badge.svg?branch=v0.2.2
+[test-url]: https://github.com/stdlib-js/string-pad/actions/workflows/test.yml?query=branch:v0.2.2
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/string-pad/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/string-pad?branch=main
