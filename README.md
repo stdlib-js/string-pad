@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@esm/index.mjs';
+import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@v0.2.3-esm/index.mjs';
 ```
 
 #### pad( str, len\[, options] )
@@ -190,7 +190,7 @@ var str = pad( 'b', 10, opts );
 
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@esm/index.mjs';
+import pad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-pad@v0.2.3-esm/index.mjs';
 
 var str = 'boop';
 var out;
